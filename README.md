@@ -73,10 +73,10 @@ This resulted in the following source and destination points:
 
 | Source        | Destination   |
 |:-------------:|:-------------:|
-| 580, 460      | 320, 0        |
+| 585, 460      | 320, 0        |
 | 203.3, 720      | 320, 720      |
-| 1066.7, 720     | 960, 720      |
-| 700, 460      | 960, 0        |
+| 1126.7, 720     | 960, 720      |
+| 695, 460      | 960, 0        |
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
@@ -121,4 +121,8 @@ Here's a [link to my video result](./project_output.mp4)
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-I feel that it is very tough to choose the hyper parameters such as color spaces, sobel and thresholds. However, my pipeline still has a few error for video. I should try to optimal parameters to remove this error for more robust.
+I feel that it is very tough to choose the optimal hyper parameters such as color spaces, sobel and thresholds. However, my pipeline still has a few error for video like below:
+
+![error](output_images/error.png)
+
+I think that these error caused by such as shadow, intensity and road color (almost same color as lane lines), so test image 1 and 4 are key for debugging my error. I tried many combination of parameters and check the test image 1 and 4 results whether it could find the line. Finally, I got the optimal parameters for this project, but my future work is that I should find out a good way to get the optimal parameters
